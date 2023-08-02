@@ -68,8 +68,6 @@ public class ModelEntity
                 ? AnimationController.create(this)
                 : AnimationController.nonDelayed(this);
 
-        // model entity is not auto-viewable by default
-        super.setAutoViewable(false); // "super" so it doesn't call our override
         initialize();
     }
 
@@ -78,6 +76,10 @@ public class ModelEntity
             Model model
     ) {
         this(type, model, BoneType.ARMOR_STAND);
+    }
+
+    public ModelEntity(Model model) {
+        this(EntityType.ARMOR_STAND, model);
     }
 
     private void initialize() {
@@ -152,6 +154,12 @@ public class ModelEntity
         super.tick(time);
         // TODO: I don't think this should be done by default like this
         this.tickAnimations();
+    }
+
+    @Override
+    public void remove() {
+        super.remove();
+        bones().forEach(Entity::remove);
     }
 
     @Override
