@@ -33,8 +33,6 @@ abstract class GenericBoneEntity extends EntityCreature implements BaseBoneView 
 
     public GenericBoneEntity(@NotNull EntityType entityType) {
         super(entityType);
-        // bones are not auto-viewable by default
-        setAutoViewable(false);
     }
 
     abstract void colorize(Color color);
