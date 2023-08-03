@@ -85,6 +85,7 @@ final class BoneEntity extends GenericBoneEntity {
         meta.setHasNoGravity(true);
         meta.setSmall(bone.small());
         meta.setInvisible(true);
+        meta.setMarker(true);
 
         // set helmet with custom model data from our bone
         setHelmet(BASE_HELMET.withMeta(itemMeta ->
