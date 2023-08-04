@@ -86,7 +86,6 @@ public class ModelEntity
         Vector2Float boundingBox = model.boundingBox();
         setBoundingBox(boundingBox.x(), boundingBox.y(), boundingBox.x());
         setInvisible(true);
-        setNoGravity(true);
 
         for (Bone bone : model.bones()) {
             createBone(bone);
